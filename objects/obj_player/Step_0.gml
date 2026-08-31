@@ -19,8 +19,6 @@ else if (itemCrash) {
 	currentX = platformHorizontalEffector;
 }
 
-show_debug_message(horizontalSpeed);
-
 //Clamp variables
 currentX = clamp(currentX, -xMax, xMax);
 currentY = clamp(currentY, -yMax, yMax);
@@ -337,26 +335,16 @@ if(!attacking && !hitState && !playerDead && global.attack && !obj_stage_manager
 				audio_play_sound(snd_cross_throw, 1, false);
 				global.hearts -= 2;
 				obj_player_sprite.image_index = 0;
-				switch(global.character) {
-					case "mario": {
-						var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
-						cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
-						cross.cross_direction = lastHorizontalDirection;
-						break;
-					}
-					
-					case "luigi": {
-						var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
-						cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
-						cross.cross_direction = lastHorizontalDirection;
-						cross.additionalYSpeed = 0.6;
-						var cross2 = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
-						cross2.cross_direction = cross2.cross_direction * lastHorizontalDirection;
-						cross2.cross_direction = lastHorizontalDirection;
-						cross2.additionalYSpeed = -0.6;
-						break;
-					}
-				}
+
+				// UNA croce sola, uguale per Mario e per Luigi. Prima Luigi ne
+				// lanciava DUE, una in salita e una in discesa
+				// (additionalYSpeed +0.6 e -0.6): scelta dell'utente, le armi
+				// devono comportarsi allo stesso modo con tutti e due.
+				// Il ramo qui sotto e' quello di Mario, lasciato com'era.
+				var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
+				cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
+				cross.cross_direction = lastHorizontalDirection;
+
 				attacking = true;
 			}
 			break;
@@ -512,8 +500,6 @@ if(place_meeting(x, y, obj_cheep_on) && !place_meeting(x, y, obj_cheep_off))
 
 if(place_meeting(x, y, obj_cheep_off) && !place_meeting(x, y, obj_cheep_on))
 	obj_stage_manager.cheep_cheep_area = false;
-
-show_debug_message(global.initialWarpDirection);
 
 //Reset Platform Effectors
 platformHorizontalEffector = 0;

@@ -14,5 +14,7 @@ global.attack = (keyboard_check_pressed(ord("X")) || gamepad_button_check_presse
 
 global.special = (keyboard_check_pressed(ord("C")) || gamepad_button_check_pressed(0, gp_face4));
 
-if(keyboard_check_pressed(vk_f2))
-	game_restart();
+if(global.debug) {
+	if(keyboard_check_pressed(vk_f2))
+		game_restart();
+}

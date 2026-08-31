@@ -89,7 +89,6 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 		}
 	}
 	
-	show_debug_message(global.hearts);
 }
 
 if(hit && image_index > 7) {

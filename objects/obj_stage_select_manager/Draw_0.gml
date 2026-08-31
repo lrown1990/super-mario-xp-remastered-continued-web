@@ -5,6 +5,23 @@ draw_set_font(small_font);
 
 draw_text(room_width / 2, 16, "SMXP:R - SAGE 2022 DEMO");
 
+// Il personaggio scelto compare sulla mappa, sulla destinazione dello stadio
+// che stai evidenziando. Le coordinate non sono a occhio: sono i punti
+// D'ARRIVO dei percorsi che il gioco usa gia' per la camminata in stage_intro
+// (path_mario_world_map_1/2/3), quindi il segnalino sta esattamente dove il
+// personaggio si fermera' dopo aver confermato.
+var mappaX = -1, mappaY = -1;
+switch(global.currentStage) {
+	case 1: { mappaX = 136; mappaY = 187; break; }
+	case 2: { mappaX = 160; mappaY = 130; break; }
+	case 3: { mappaX = 202; mappaY = 170; break; }
+}
+
+if(mappaX >= 0) {
+	draw_sprite(global.character == "luigi" ? spr_luigi_world_map_idle : spr_mario_world_map_idle,
+	            0, mappaX, mappaY);
+}
+
 switch(global.currentStage) {
 	case 1: {
 		switch(global.language) {

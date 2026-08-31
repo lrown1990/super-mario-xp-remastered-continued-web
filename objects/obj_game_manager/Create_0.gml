@@ -7,8 +7,9 @@ global.whiteFont1 = font_add_sprite_ext(spr_font_stage_select, "ABCDEFGHIJKLMNOP
 
 global.pause = false;
 
+
 global.playerDead = false;
-global.debug = true;
+global.debug = false;
 
 global.currentStage = 1;
 
@@ -38,6 +39,18 @@ global.smoothTransitions = true;
 global.parallaxScrolling = true;
 
 global.oneHit = false;
+
+// Le preferenze tornano come le aveva lasciate la volta prima. Stanno nel file
+// del salvataggio ma in una SEZIONE tutta loro, "options": "New game" svuota
+// solo la chiave "content" della sezione "save-data", quindi cancellando la
+// partita le impostazioni restano dove sono.
+// I valori qui sopra fanno da riserva: alla prima partita il file non esiste
+// ancora e ini_read_* restituisce proprio quelli.
+ini_open("save_data.xp");
+global.character = ini_read_string("options", "character", global.character);
+global.parallaxScrolling = ini_read_real("options", "parallax", global.parallaxScrolling) > 0.5;
+global.smoothTransitions = ini_read_real("options", "transitions", global.smoothTransitions) > 0.5;
+ini_close();
 
 //window_set_fullscreen(true);
 surface_resize(application_surface, 320, 240);

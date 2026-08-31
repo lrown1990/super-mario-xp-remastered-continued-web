@@ -1,18 +1,23 @@
-arrProps = ["character", "music", "parallax", "transitions", "exit"];
+arrProps = ["character", "parallax", "transitions", "exit"];
 characterList = ["mario", "luigi"];
-musicList = ["remastered", "original", "snes"];
 parallaxActivated = [true, false];
 smoothTransitionsActivated = [true, false];
 
-optionsArr = [characterList, musicList, parallaxActivated, smoothTransitionsActivated];
+optionsArr = [characterList, parallaxActivated, smoothTransitionsActivated];
 
 arrCurrent = 0;
 arrListCurrent = 0;
 
-arrCharacterCurrent = 0;
-arrMusicCurrent = 0;
-arrParallaxCurrent = 0;
-arrTransitionCurrent = 0;
+// Le voci partono da come stanno le preferenze ADESSO, non da capo.
+// Prima erano fisse a zero, e siccome il passo riassegna la variabile globale
+// dalla voce evidenziata, bastava entrare nelle opzioni per ritrovarsi Mario
+// anche dopo aver scelto Luigi.
+arrCharacterCurrent = (global.character == "luigi") ? 1 : 0;
+arrParallaxCurrent = global.parallaxScrolling ? 0 : 1;
+arrTransitionCurrent = global.smoothTransitions ? 0 : 1;
+
+// si scrive su disco solo quando qualcosa cambia davvero
+cambiato = false;
 
 pressed = false;
 pressedOption = false;

@@ -9,59 +9,45 @@ switch(global.language) {
 		switch(global.character) {
 			case "mario": {
 				draw_text(16, 8 * 6, "MARIO");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "BALANCED");
 				break;
 			}
 			
 			case "luigi": {
 				draw_text(16, 8 * 6, "LUIGI");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "FASTER, JUMPS HIGHER, WEAKER");
 				break;
 			}
 		}
 		draw_set_color(arrCurrent == 1 ? c_yellow : c_white);
-		draw_text(16, 8 * 9, "Music style:");
-		switch(musicList[arrMusicCurrent]) {
-			case "remastered": {
-				draw_text(16, 8 * 11, "REMASTERED");
+		draw_text(16, 8 * 11, "Parallax:");
+		switch(global.parallaxScrolling) {
+			case true: {
+				draw_text(16, 8 * 13, "ACTIVATED");
 				break;
 			}
 			
-			case "original": {
-				draw_text(16, 8 * 11, "ORIGINAL");
-				break;
-			}
-			
-			case "snes": {
-				draw_text(16, 8 * 11, "SUPER NINTENDO");
+			case false: {
+				draw_text(16, 8 * 13, "DEACTIVATED");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 2 ? c_yellow : c_white);
-		draw_text(16, 8 * 14, "Parallax:");
-		switch(global.parallaxScrolling) {
+		draw_text(16, 8 * 16, "Smooth transitions:");
+		switch(global.smoothTransitions) {
 			case true: {
-				draw_text(16, 8 * 16, "ACTIVATED");
+				draw_text(16, 8 * 18, "ACTIVATED");
 				break;
 			}
 			
 			case false: {
-				draw_text(16, 8 * 16, "DEACTIVATED");
+				draw_text(16, 8 * 18, "DEACTIVATED");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
-		draw_text(16, 8 * 19, "Smooth transitions:");
-		switch(global.smoothTransitions) {
-			case true: {
-				draw_text(16, 8 * 21, "ACTIVATED");
-				break;
-			}
-			
-			case false: {
-				draw_text(16, 8 * 21, "DEACTIVATED");
-				break;
-			}
-		};
-		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Exit");
 		break;
 	}
@@ -76,59 +62,45 @@ switch(global.language) {
 		switch(global.character) {
 			case "mario": {
 				draw_text(16, 8 * 6, "MARIO");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "BALANCED");
 				break;
 			}
 			
 			case "luigi": {
 				draw_text(16, 8 * 6, "LUIGI");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "FASTER, JUMPS HIGHER, WEAKER");
 				break;
 			}
 		}
 		draw_set_color(arrCurrent == 1 ? c_yellow : c_white);
-		draw_text(16, 8 * 9, "Estilo de música:");
-		switch(musicList[arrMusicCurrent]) {
-			case "remastered": {
-				draw_text(16, 8 * 11, "REMASTERED");
+		draw_text(16, 8 * 11, "Parallax:");
+		switch(global.parallaxScrolling) {
+			case true: {
+				draw_text(16, 8 * 13, "ATIVADO");
 				break;
 			}
 			
-			case "original": {
-				draw_text(16, 8 * 11, "ORIGINAL");
-				break;
-			}
-			
-			case "snes": {
-				draw_text(16, 8 * 11, "SUPER NINTENDO");
+			case false: {
+				draw_text(16, 8 * 13, "DESATIVADO");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 2 ? c_yellow : c_white);
-		draw_text(16, 8 * 14, "Parallax:");
-		switch(global.parallaxScrolling) {
+		draw_text(16, 8 * 16, "Transições suaves:");
+		switch(global.smoothTransitions) {
 			case true: {
-				draw_text(16, 8 * 16, "ATIVADO");
+				draw_text(16, 8 * 18, "ATIVADO");
 				break;
 			}
 			
 			case false: {
-				draw_text(16, 8 * 16, "DESATIVADO");
+				draw_text(16, 8 * 18, "DESATIVADO");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
-		draw_text(16, 8 * 19, "Transições suaves:");
-		switch(global.smoothTransitions) {
-			case true: {
-				draw_text(16, 8 * 21, "ATIVADO");
-				break;
-			}
-			
-			case false: {
-				draw_text(16, 8 * 21, "DESATIVADO");
-				break;
-			}
-		};
-		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Sair");
 		break;
 	}
@@ -143,59 +115,45 @@ switch(global.language) {
 		switch(global.character) {
 			case "mario": {
 				draw_text(16, 8 * 6, "MARIO");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "BALANCED");
 				break;
 			}
 			
 			case "luigi": {
 				draw_text(16, 8 * 6, "LUIGI");
+				draw_set_color(c_ltgray);
+				draw_text(16, 8 * 8, "FASTER, JUMPS HIGHER, WEAKER");
 				break;
 			}
 		}
 		draw_set_color(arrCurrent == 1 ? c_yellow : c_white);
-		draw_text(16, 8 * 9, "Music style:");
-		switch(musicList[arrMusicCurrent]) {
-			case "remastered": {
-				draw_text(16, 8 * 11, "REMASTERED");
+		draw_text(16, 8 * 11, "Parallax:");
+		switch(global.parallaxScrolling) {
+			case true: {
+				draw_text(16, 8 * 13, "ACTIVATED");
 				break;
 			}
 			
-			case "original": {
-				draw_text(16, 8 * 11, "ORIGINAL");
-				break;
-			}
-			
-			case "snes": {
-				draw_text(16, 8 * 11, "SUPER NINTENDO");
+			case false: {
+				draw_text(16, 8 * 13, "DEACTIVATED");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 2 ? c_yellow : c_white);
-		draw_text(16, 8 * 14, "Parallax:");
-		switch(global.parallaxScrolling) {
+		draw_text(16, 8 * 16, "Smooth transitions:");
+		switch(global.smoothTransitions) {
 			case true: {
-				draw_text(16, 8 * 16, "ACTIVATED");
+				draw_text(16, 8 * 18, "ACTIVATED");
 				break;
 			}
 			
 			case false: {
-				draw_text(16, 8 * 16, "DEACTIVATED");
+				draw_text(16, 8 * 18, "DEACTIVATED");
 				break;
 			}
 		};
 		draw_set_color(arrCurrent == 3 ? c_yellow : c_white);
-		draw_text(16, 8 * 19, "Smooth transitions:");
-		switch(global.smoothTransitions) {
-			case true: {
-				draw_text(16, 8 * 21, "ACTIVATED");
-				break;
-			}
-			
-			case false: {
-				draw_text(16, 8 * 21, "DEACTIVATED");
-				break;
-			}
-		};
-		draw_set_color(arrCurrent == 4 ? c_yellow : c_white);
 		draw_text(16, room_height - 8 * 2, "Exit");
 		break;
 	}

@@ -1,12 +1,12 @@
 if(!global.playerDead) {
 	x += fireballSpeed * fire_direction;
 
-	switch(emitter) {
-		case "mario": {
-			currentY += 0.2;
-			break;
-		}
-	}
+	// La gravita' vale per tutti e due i personaggi. Prima stava dentro uno
+	// switch con il solo caso "mario", quindi il fuoco di Luigi volava dritto
+	// e non rimbalzava mai: il rimbalzo a terra e' condizionato a currentY > 0,
+	// che senza gravita' non si verifica. Il colore verde non c'entra, sta nel
+	// Draw e nelle particelle.
+	currentY += 0.2;
 
 	currentAngle += 20 * -fire_direction;
 
