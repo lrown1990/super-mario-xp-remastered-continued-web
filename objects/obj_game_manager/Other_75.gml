@@ -19,7 +19,7 @@ var _m = undefined;
 try {
     _m = json_parse(_grezzo);
 } catch (_e) {
-    exit; // non e' roba nostra
+    exit; // not one of ours
 }
 
 if (!is_struct(_m)) exit;

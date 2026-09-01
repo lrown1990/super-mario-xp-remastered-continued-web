@@ -1,8 +1,9 @@
-// Il gioco aveva quattro colonne sonore (remaster, originale, SNES, Luigi)
-// selezionabili da Opzioni. Sul sito e' rimasta solo la remaster e la voce
-// di menu e' stata tolta, quindi i brani delle altre tre non servivano
-// piu' e sono stati cancellati dal progetto: se si rimettessero i case
-// qui, punterebbero ad asset che non esistono e il gioco non compila.
+// The game had four soundtracks (remaster, original, SNES, Luigi)
+// selectable from Options. On the site only the remaster is left and the
+// menu entry has been removed, so the tracks for the other three were no
+// longer needed and have been deleted from the project: putting the cases
+// back here would point at assets that do not exist and the game would not
+// compile.
 function set_soundtrack(soundtrack){
 	global.bgm_stage_intro = bgm_stage_intro_remaster;
 	global.bgm_stage1 = bgm_stage1_remaster;

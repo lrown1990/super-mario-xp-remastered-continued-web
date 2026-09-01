@@ -1,6 +1,6 @@
-// Mammoth Flower - boss dello stadio 2.
-// I numeri vengono dagli eventi dell'originale, livello 22 "2-7".
-// Vedi port/marioxp-originale/BOSS-PIANTA-SPECIFICA.md
+// Mammoth Flower - the stage 2 boss.
+// The numbers come from the original's events, level 22 "2-7".
+// See port/marioxp-originale/BOSS-PIANTA-SPECIFICA.md
 
 depth = 30;
 
@@ -23,7 +23,7 @@ bobTime = 0;
 currentAnim = "idle";
 animationTimeout = 0;
 
-// l'uscita a destra resta chiusa finche' il boss e' vivo
+// the exit on the right stays shut while the boss is alive
 instance_deactivate_object(obj_screen_advance);
 
 active = true;

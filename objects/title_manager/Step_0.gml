@@ -1,15 +1,15 @@
-// RIQUADRO DI CONFERMA DI "NEW GAME".
-// Sta in cima perche' finche' e' aperto il menu dietro deve restare fermo:
-// il passo si chiude qui con un return. L'unica uscita in avanti e' il YES,
-// che accende la variabile locale qui sotto e prosegue nella selezione di
-// sempre, con i suoi suoni e la sua attesa di due secondi.
+// CONFIRMATION BOX FOR "NEW GAME".
+// It sits at the top because while it is open the menu behind it has to
+// stay frozen: the step ends here with a return. The only way forward is
+// YES, which sets the local variable below and carries on into the usual
+// selection, with its sounds and its two second wait.
 var confermaNuovaPartita = false;
 
 if(confirming) {
 	if(global.horizontal != 0 && !confirmMoved) {
 		confirmMoved = true;
 
-		// sinistra e' YES, destra e' NO, come sono disegnati
+		// left is YES, right is NO, the way they are drawn
 		var scelta = (global.horizontal < 0);
 
 		if(scelta != confirmYes) {
@@ -20,7 +20,7 @@ if(confirming) {
 		confirmMoved = false;
 	}
 
-	// X chiude il riquadro senza fare niente, come il NO
+	// X closes the box without doing anything, same as NO
 	if(global.attack) {
 		confirming = false;
 		audio_play_sound(snd_cursor_move, 1, false);
@@ -54,9 +54,9 @@ else if(currentOption > 3)
 	currentOption = 1;
 
 if((global.start || global.jump || confermaNuovaPartita) && !selected) {
-	// il YES del riquadro vale per "New game" e basta: se in quel momento era
-	// premuta anche una freccia, il cursore dietro non deve dirottare la
-	// scelta su un'altra voce
+	// the box's YES applies to "New game" and nothing else: if an arrow key
+	// happened to be held down at that moment, the cursor behind must not
+	// divert the choice to another entry
 	if(confermaNuovaPartita)
 		currentOption = 1;
 
@@ -64,9 +64,9 @@ if((global.start || global.jump || confermaNuovaPartita) && !selected) {
 		return;
 	}
 
-	// "New game" con una partita salvata: prima si chiede conferma, e la
-	// selezione vera arriva solo dopo il YES. Senza salvataggio non c'e'
-	// niente da perdere e si tira dritto come prima.
+	// "New game" with a saved game: it asks for confirmation first, and the
+	// real selection only happens after YES. With no save there is nothing
+	// to lose and it goes straight through as before.
 	if(currentOption == 1 && hasSave && !confermaNuovaPartita) {
 		confirming = true;
 		confirmYes = false;
@@ -97,12 +97,13 @@ if(selected)
 if(timeout > 2) {
 	switch(currentOption) {
 		case 1: {
-			// NUOVA PARTITA: si riparte davvero da zero. Prima non si azzerava
-			// niente, e siccome obj_game_manager e' persistente (il suo Create
-			// gira una volta sola all'avvio), dopo aver giocato "new game"
-			// ripartiva dallo stadio gia' raggiunto, con i cuori e l'arma di
-			// prima. Qui si rimettono i valori iniziali e si cancella la
-			// partita salvata, cosi' anche "Select Stage" torna bloccato.
+			// NEW GAME: it really does start from scratch. Nothing used to
+			// be reset, and since obj_game_manager is persistent (its
+			// Create runs only once at startup), after playing, "new game"
+			// restarted from the stage already reached, with the hearts and
+			// the weapon from before. Here the initial values are put back
+			// and the saved game is wiped, so that "Select Stage" goes back
+			// to being locked as well.
 			global.currentStage = 1;
 			global.playerLives = 5;
 			global.hearts = 10;

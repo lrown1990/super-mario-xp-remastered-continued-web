@@ -3,7 +3,8 @@ if(!global.playerDead && instance_exists(obj_player)) {
 		var elapsed = delta_time / 1000000;
 
 		if(!sinking) {
-			// insegue Mario di 1 pixel ogni 100 ms, fra le X 60 e 900 (ev. 357, 358)
+			// chases Mario 1 pixel every 100 ms, between X 60 and 900 (ev.
+			// 357, 358)
 			chaseTimer += elapsed;
 			while(chaseTimer >= 0.1) {
 				chaseTimer -= 0.1;
@@ -14,24 +15,25 @@ if(!global.playerDead && instance_exists(obj_player)) {
 					x += 1;
 			}
 
-			// sale finche' non arriva a quota 160 (ev. 359)
+			// rises until it reaches height 160 (ev. 359)
 			if(y > riseLimit) {
 				y -= 1;
 
-				// finche' sta risalendo il cronometro del tuffo non corre:
-				// deve contare da quando e' arrivata sul ponte, se no si
-				// tuffa mentre e' ancora sotto
+				// while it is still rising the dive timer does not run: it
+				// has to count from the moment the flower reaches the
+				// bridge, otherwise it dives while still below
 				slamTimer = 0;
 			} else {
-				// arrivata in quota dondola di 13 pixel a 12 pixel al secondo:
-				// e' il percorso registrato nell'originale, un tratto in ciclo
-				// con inversione alla fine
+				// once up there it bobs 13 pixels at 12 pixels per second:
+				// that is the movement recorded in the original, a single
+				// leg looping with a reverse at the end
 				bobTime += elapsed;
 				y = riseLimit - abs(((bobTime * 12) mod 26) - 13);
 
-				// Si lascia cadere: nell'originale (ev. 382) e' un secco "ogni
-				// 3000 ms", qui l'attesa e' sorteggiata a ogni giro in un
-				// intorno di quel valore, cosi' non si prende il tempo.
+				// It drops down: in the original (ev. 382) this is a flat
+				// "every 3000 ms", here the wait is drawn at random around
+				// that value each time, so the player cannot count the
+				// beat.
 				slamTimer += elapsed;
 				if(slamTimer >= slamDelay) {
 					slamTimer = 0;
@@ -44,8 +46,8 @@ if(!global.playerDead && instance_exists(obj_player)) {
 			}
 
 		} else {
-			// cade accelerando (ev. 360). Colpita scappa: scende piu' in fretta
-			// e scarta di lato, a destra o a sinistra a caso
+			// falls with acceleration (ev. 360). Once hit it flees: it
+			// drops faster and swerves sideways, left or right at random
 			fallSpeed += 0.5;
 			y += fallSpeed / 2;
 
@@ -53,23 +55,25 @@ if(!global.playerDead && instance_exists(obj_player)) {
 				x = clamp(x + fleeDir * 1.5, 60, 900);
 			}
 
-			// toccando terra lancia quattro spore (ev. 383)
+			// on hitting the ground it throws four spores (ev. 383)
 			if(!slammed && place_meeting(x, y + 1, obj_ground_group)) {
 				slammed = true;
 				audio_play_sound(snd_boss_2_land, 1, false);
 
-				// Quattro spore, e il ventaglio NON e' inventato: la maschera
-				// delle direzioni nell'evento 383 e' 0x1ff0, cioe' le direzioni
-				// da 4 a 12 delle 32 di Clickteam, da 45 a 135 gradi a passi di
-				// 11,25. Il gioco ne sorteggia una per ogni spora.
-				// La spinta base e' "15 + casuale(10)" in unita' Clickteam. Il
-				// cambio di 6,25 pixel al secondo per unita' e' documentato per
-				// i PERCORSI registrati, non per un oggetto lanciato: a quel
-				// valore l'apice della parabola veniva a 17 pixel e la pianta
-				// se le buttava addosso. SPINTA e' il moltiplicatore tarato a
-				// occhio, ed e' l'unico numero da girare se l'arco non convince
-				// (con 1,45 e gravita' 0,08 l'apice sta fra i 32 e gli 88 pixel,
-				// ma la parabola e' piu' lenta sia a salire sia a scendere).
+				// Four spores, and the spread is NOT invented: the
+				// direction mask in event 383 is 0x1ff0, that is directions
+				// 4 to 12 out of Clickteam's 32, from 45 to 135 degrees in
+				// steps of 11.25. The game draws one of them per spore.
+				//
+				// The base push is "15 + random(10)" in Clickteam units.
+				// The documented rate of 6.25 pixels per second per unit is
+				// for recorded MOVEMENTS, not for a thrown object: at that
+				// value the top of the arc came out at 17 pixels and the
+				// flower was dropping the spores on its own head. SPINTA is
+				// the multiplier tuned by eye, and it is the only number to
+				// turn if the arc does not look right (at 1.45 with gravity
+				// 0.08 the top sits between 32 and 88 pixels, but the arc
+				// is slower both up and down).
 				var SPINTA = 1.45;
 
 				for(var i = 0; i < 4; i++) {
@@ -79,7 +83,7 @@ if(!global.playerDead && instance_exists(obj_player)) {
 				}
 			}
 
-			// sotto quota 260 riemerge a una X casuale (ev. 361)
+			// below height 260 it comes back up at a random X (ev. 361)
 			if(y > sinkLimit) {
 				x = 40 + irandom(880);
 				y = sinkLimit;
@@ -90,7 +94,8 @@ if(!global.playerDead && instance_exists(obj_player)) {
 			}
 		}
 
-		// i tentacoli spuntano piu' in fretta man mano che incassa danno (ev. 370, 371, 372)
+		// tentacles come up faster the more damage it has taken (ev. 370,
+		// 371, 372)
 		var taken = 18 - damagePoints;
 		var tentacleDelay = 1.8;
 		if(taken >= 12)
@@ -98,20 +103,21 @@ if(!global.playerDead && instance_exists(obj_player)) {
 		else if(taken >= 6)
 			tentacleDelay = 1.1;
 
-		// spuntano da terra a una X casuale DENTRO L'INQUADRATURA, non dalla
-		// pianta: nell'originale l'ev. 15 sposta di continuo il segnaposto a
-		// "bordo sinistro dello schermo + casuale(320)"
+		// they come out of the ground at a random X INSIDE THE VIEW, not
+		// out of the flower: in the original ev. 15 keeps moving the marker
+		// to "left edge of the screen + random(320)"
 		tentacleTimer += elapsed;
 		if(tentacleTimer >= tentacleDelay) {
 			tentacleTimer = 0;
 
-			// Nasce gia' alla quota d'attesa dell'originale: cima a y=230,
-			// misurata sul video. L'origine dello sprite sta 14 pixel sotto
-			// la cima, quindi l'oggetto va messo a 244.
-			// La X e' sorteggiata dentro l'inquadratura (ev. 15), ma limitata
-			// alla zona del ponte: gli estremi 60 e 900 sono gli stessi entro
-			// cui l'originale tiene la pianta (ev. 357 e 358), cioe' il tratto
-			// giocabile fra l'entrata e l'uscita.
+			// It is born already at the original's waiting height: tip at
+			// y=230, measured from the video. The sprite origin sits 14
+			// pixels below the tip, so the object goes at 244.
+			//
+			// The X is drawn inside the view (ev. 15), but kept to the
+			// bridge area: the limits 60 and 900 are the same ones the
+			// original keeps the flower within (ev. 357 and 358), that is
+			// the playable stretch between the entrance and the exit.
 			var viewX = camera_get_view_x(view_camera[0]);
 			var x1 = max(viewX, 60);
 			var x2 = min(viewX + 320, 900);
@@ -120,18 +126,19 @@ if(!global.playerDead && instance_exists(obj_player)) {
 				instance_create_layer(x1 + irandom(x2 - x1), 244, "Objects", obj_boss_2_tentacle);
 		}
 
-		// Le armi contano solo se prendono il FIORE, non le foglie. Il riquadro
-		// e' misurato sullo sprite: nell'originale i pixel rossi del fiore
-		// stanno in x 33..57 e y 4..13 di un disegno 90x120 con l'origine a
-		// (44,24), cioe' qui sotto, con qualche pixel di tolleranza.
+		// Weapons only count if they hit the FLOWER, not the leaves. The
+		// box is measured off the sprite: in the original the flower's red
+		// pixels sit at x 33..57 and y 4..13 of a 90x120 drawing with its
+		// origin at (44,24), which is what is below, plus a few pixels of
+		// slack.
 		var tx1 = x - 13, ty1 = y - 22, tx2 = x + 15, ty2 = y - 8;
 
 		var fireTouched = collision_rectangle(tx1, ty1, tx2, ty2, obj_fireball, false, true);
 		var hammerTouched = collision_rectangle(tx1, ty1, tx2, ty2, obj_hammer_player, false, true);
 		var crossTouched = collision_rectangle(tx1, ty1, tx2, ty2, obj_cross, false, true);
 
-		// Pestata: 2 punti (ev. 363). Vale solo sul fiore, non sulle foglie,
-		// che sono fronde e non ci si sta in piedi. Stesso riquadro delle armi.
+		// Stomp: 2 points (ev. 363). Only on the flower, not on the leaves,
+		// which are fronds and cannot be stood on. Same box as the weapons.
 		if(collision_rectangle(tx1, ty1 - max(obj_player.currentY, 0), tx2, ty2, obj_player, false, true)
 		   && !place_meeting(x, y + 10, obj_player)) {
 			if(currentAnim != "damaged") {
@@ -152,7 +159,7 @@ if(!global.playerDead && instance_exists(obj_player)) {
 			obj_player.y = bbox_top;
 		}
 
-		// palla di fuoco e martello: 1 punto. croce: 2 (ev. 364, 365, 366)
+		// fireball and hammer: 1 point. cross: 2 (ev. 364, 365, 366)
 		if(fireTouched && currentAnim != "damaged") {
 			var instance = instance_create_layer(fireTouched.x, fireTouched.y, "Objects", obj_fireball_explosion);
 			instance.emitter = fireTouched.emitter;
@@ -214,9 +221,10 @@ if(!global.playerDead && instance_exists(obj_player)) {
 		if(damagePoints <= 0) {
 			active = false;
 
-			// l'uscita del quadro resta disattivata anche dopo: battuto il
-			// boss si passa allo stadio dopo da soli, e riattivarla faceva
-			// solo ricomparire il suo rettangolo verde in fondo a destra
+			// the screen exit stays disabled afterwards too: once the boss
+			// is beaten the game moves on to the next stage by itself, and
+			// switching it back on only made its green rectangle show up
+			// again in the bottom right
 			audio_stop_sound(global.bgm_boss_intro);
 			audio_stop_sound(global.bgm_boss_loop);
 			audio_sound_gain(global.bgm_boss_loop, 0, 0);
@@ -225,9 +233,9 @@ if(!global.playerDead && instance_exists(obj_player)) {
 			image_index = 0;
 			sprite_index = spr_boss_2_defeat;
 
-			// i tentacoli non spariscono: muoiono tutti insieme come se fossero
-			// stati colpiti nello stesso istante, ognuno col suo effetto, e lo
-			// stelo senza testa se ne va verso il basso
+			// the tentacles do not just vanish: they all die together as if
+			// they had been hit at the same instant, each with its own
+			// effect, and the headless stalk sinks away downwards
 			with(obj_boss_2_tentacle) {
 				if(!dying) {
 					instance_create_layer(x, bbox_top + 8, "Objects", obj_piranha_plant_defeated);

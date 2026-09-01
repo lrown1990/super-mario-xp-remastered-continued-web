@@ -1,6 +1,6 @@
 var elapsed = delta_time / 1000000;
 
-// decapitato: lo stelo senza testa scende e sparisce
+// beheaded: the headless stalk sinks away and disappears
 if(dying) {
 	y += 3;
 
@@ -15,8 +15,8 @@ if(dying) {
 	}
 
 	if(pauseTime > 0) {
-		// durante l'attesa morde, col verso vero dell'originale (inpact_15),
-		// una volta sola per tentacolo
+		// while waiting it bites, with the real sound from the original
+		// (inpact_15), once per tentacle
 		pauseTime -= elapsed;
 
 		if(sprite_index != spr_boss_2_tentacle_bite) {
@@ -41,19 +41,19 @@ if(dying) {
 	instance_destroy();
 }
 
-// oltre quota 260 sparisce comunque (ev. 375)
+// past height 260 it disappears anyway (ev. 375)
 if(!dying && y > 260)
 	instance_destroy();
 
-// le tre armi lo abbattono (ev. 377, 378, 379): muore la testa, e lo stelo
-// senza testa se ne va verso il basso
+// the three weapons bring it down (ev. 377, 378, 379): the head dies, and
+// the headless stalk sinks away downwards
 if(!dying) {
-	// Le armi contano solo sulla TESTA, sul corpo passano attraverso.
-	// Riquadro misurato, non stimato: lo sprite con la testa parte a -14
-	// dall'origine, quello decapitato a -7, e in basso finiscono uguali.
-	// Guardando la larghezza riga per riga, la bocca e' larga fino a -2, a 0
-	// si strozza nel collo e da +2 ricomincia la prima foglia: quindi la
-	// testa e' tutta la fascia da -14 a 0.
+	// Weapons only count on the HEAD, through the body they pass straight
+	// through. The box is measured, not guessed: the sprite with the head
+	// starts at -14 from the origin, the beheaded one at -7, and they end
+	// at the same place at the bottom. Reading the width row by row, the
+	// mouth is wide down to -2, at 0 it narrows into the neck and from +2
+	// the first leaf begins: so the head is the whole band from -14 to 0.
 	var tx1 = x - 9, ty1 = y - 14, tx2 = x + 9, ty2 = y;
 
 	var fireTouched = collision_rectangle(tx1, ty1, tx2, ty2, obj_fireball, false, true);
@@ -63,7 +63,7 @@ if(!dying) {
 	if(fireTouched || hammerTouched || crossTouched) {
 		audio_play_sound(snd_boss_2_tentacle_dead, 1, false);
 
-		// muore la testa: stesso effetto delle piante nei tubi
+		// the head dies: same effect as the piranha plants in the pipes
 		instance_create_layer(x, bbox_top + 8, "Objects", obj_piranha_plant_defeated);
 
 		if(hammerTouched)

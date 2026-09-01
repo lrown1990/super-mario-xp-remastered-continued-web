@@ -64,10 +64,10 @@ switch(arrCurrent) {
 	}
 }
 
-// Si scrive su disco appena una voce cambia, non all'uscita: il gioco vive in
-// una finestra del browser e la si puo' chiudere in qualsiasi momento.
-// Il blocco sta QUI, dopo lo switch che aggiorna le variabili globali dalla
-// voce evidenziata: messo prima si salverebbe il valore vecchio.
+// It writes to disk as soon as an entry changes, not on the way out: the
+// game lives in a browser window and that can be closed at any moment.
+// The block goes HERE, after the switch that updates the globals from the
+// highlighted entry: put before it, it would save the old value.
 if(cambiato) {
 	cambiato = false;
 

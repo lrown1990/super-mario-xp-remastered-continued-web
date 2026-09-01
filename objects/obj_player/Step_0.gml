@@ -336,11 +336,11 @@ if(!attacking && !hitState && !playerDead && global.attack && !obj_stage_manager
 				global.hearts -= 2;
 				obj_player_sprite.image_index = 0;
 
-				// UNA croce sola, uguale per Mario e per Luigi. Prima Luigi ne
-				// lanciava DUE, una in salita e una in discesa
-				// (additionalYSpeed +0.6 e -0.6): scelta dell'utente, le armi
-				// devono comportarsi allo stesso modo con tutti e due.
-				// Il ramo qui sotto e' quello di Mario, lasciato com'era.
+				// ONE cross only, the same for Mario and for Luigi. Luigi
+				// used to throw TWO, one on the way up and one on the way
+				// down (additionalYSpeed +0.6 and -0.6): the user's call,
+				// the weapons have to behave the same way for both. The
+				// branch below is Mario's, left as it was.
 				var cross = instance_create_layer(x + (8 * lastHorizontalDirection), y - 16, "Objects", obj_cross);
 				cross.cross_direction = cross.cross_direction * lastHorizontalDirection;
 				cross.cross_direction = lastHorizontalDirection;

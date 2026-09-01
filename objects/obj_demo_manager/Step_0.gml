@@ -4,21 +4,22 @@ if(demoTimeout > 1) {
 	layer_hspeed("Fade_In", 8);
 }
 
-// Si salta con INVIO o con Z, i due tasti di conferma del gioco. Sono gia'
-// pronti in global.start e global.jump, che obj_game_manager aggiorna nel
-// Begin Step, e sono tutti e due "appena premuto": la stessa pressione non
-// riparte quindi sul menu del titolo, che gira dal fotogramma dopo.
-// ESC NO, anche se sembrerebbe il tasto giusto: dentro CARLO_OS quello e' il
-// tasto della pausa della finestra, lo intercetta il sito e metterebbe in
-// pausa mentre qui si salta.
-// Quattro secondi, non piu' tre: i crediti sono diventati tre blocchi.
+// You skip it with ENTER or Z, the game's two confirm keys. They are
+// already prepared in global.start and global.jump, which obj_game_manager
+// refreshes in the Begin Step, and both are "just pressed": the same
+// keypress does not carry over into the title menu, which starts running on
+// the next frame.
+// NOT ESC, even though it looks like the right key: inside CARLO_OS that is
+// the window's pause key, the site intercepts it and it would pause the
+// game while you are trying to skip.
+// Four seconds, not three any more: the credits have become three blocks.
 if(demoTimeout > 4 || global.start || global.jump) {
-	// Si va diritti al titolo: la scelta della lingua e' stata tolta perche'
-	// scegliendo giapponese o portoghese la stragrande maggioranza dei testi
-	// resta comunque in inglese, quindi era una domanda senza risposta utile.
-	// L'inglese e' gia' la lingua predefinita (global.language in
-	// obj_game_manager/Create_0.gml). La stanza language_select e i suoi
-	// oggetti restano nel progetto, solo non ci passa piu' nessuno: per
-	// rimetterla basta ripristinare questa riga.
+	// Straight to the title: the language choice has been removed, because
+	// picking Japanese or Portuguese leaves the vast majority of the text
+	// in English anyway, so it was a question with no useful answer.
+	// English is already the default (global.language in
+	// obj_game_manager/Create_0.gml). The language_select room and its
+	// objects stay in the project, nobody just goes there any more: to
+	// bring it back, restore this line.
 	room_goto(title_screen);
 }

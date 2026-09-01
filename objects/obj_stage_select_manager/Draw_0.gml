@@ -3,23 +3,33 @@ draw_set_valign(fa_center);
 draw_set_color(c_white);
 draw_set_font(small_font);
 
-draw_text(room_width / 2, 16, "SMXP:R - SAGE 2022 DEMO");
+// Matth33w used to print "SMXP:R - SAGE 2022 DEMO" up here, the label of
+// the demo build he had prepared for the Sonic Amateur Games Expo. Removed:
+// on this fork it announced a 2022 demo of an event that has nothing to do
+// with us, and empty space at the top of the map looks better than a line
+// that means nothing to the player. The drawing settings above are still
+// needed by the rest of the screen, they stay.
 
-// Il personaggio scelto compare sulla mappa, sulla destinazione dello stadio
-// che stai evidenziando. Le coordinate non sono a occhio: sono i punti
-// D'ARRIVO dei percorsi che il gioco usa gia' per la camminata in stage_intro
-// (path_mario_world_map_1/2/3), quindi il segnalino sta esattamente dove il
-// personaggio si fermera' dopo aver confermato.
-var mappaX = -1, mappaY = -1;
+// The chosen character shows up on the map, on the destination of the stage
+// you are highlighting. The point is not written by hand: it reads the LAST
+// POINT of the path the game uses for the walk in stage_intro, so the
+// marker is bound to sit where the character will stop after confirming,
+// even if a path is ever adjusted.
+var percorso = -1;
 switch(global.currentStage) {
-	case 1: { mappaX = 136; mappaY = 187; break; }
-	case 2: { mappaX = 160; mappaY = 130; break; }
-	case 3: { mappaX = 202; mappaY = 170; break; }
+	case 1: { percorso = path_mario_world_map_1; break; }
+	case 2: { percorso = path_mario_world_map_2; break; }
+	case 3: { percorso = path_mario_world_map_3; break; }
+	case 4: { percorso = path_mario_world_map_4; break; }
+	case 5: { percorso = path_mario_world_map_5; break; }
+	case 6: { percorso = path_mario_world_map_6; break; }
+	case 7: { percorso = path_mario_world_map_7; break; }
 }
 
-if(mappaX >= 0) {
+if(percorso != -1) {
+	var arrivo = path_get_number(percorso) - 1;
 	draw_sprite(global.character == "luigi" ? spr_luigi_world_map_idle : spr_mario_world_map_idle,
-	            0, mappaX, mappaY);
+	            0, path_get_point_x(percorso, arrivo), path_get_point_y(percorso, arrivo));
 }
 
 switch(global.currentStage) {

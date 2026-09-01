@@ -8,15 +8,15 @@ optionsArr = [characterList, parallaxActivated, smoothTransitionsActivated];
 arrCurrent = 0;
 arrListCurrent = 0;
 
-// Le voci partono da come stanno le preferenze ADESSO, non da capo.
-// Prima erano fisse a zero, e siccome il passo riassegna la variabile globale
-// dalla voce evidenziata, bastava entrare nelle opzioni per ritrovarsi Mario
-// anche dopo aver scelto Luigi.
+// The entries start from how the preferences stand NOW, not from scratch.
+// They used to be fixed at zero, and since the step re-assigns the global
+// from the highlighted entry, simply opening the options was enough to end
+// up as Mario again after choosing Luigi.
 arrCharacterCurrent = (global.character == "luigi") ? 1 : 0;
 arrParallaxCurrent = global.parallaxScrolling ? 0 : 1;
 arrTransitionCurrent = global.smoothTransitions ? 0 : 1;
 
-// si scrive su disco solo quando qualcosa cambia davvero
+// it only writes to disk when something actually changes
 cambiato = false;
 
 pressed = false;

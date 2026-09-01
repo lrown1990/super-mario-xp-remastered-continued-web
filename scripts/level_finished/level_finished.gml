@@ -7,12 +7,12 @@ function level_finished(nextStage, weapon, hearts, playerHealth){
 	if(existing != "")
 		ds_map_read(savemap, existing);
 	
-	// GRAFFE OBBLIGATORIE. Senza, l'else si legava all'if INTERNO invece che a
-	// quello esterno (dangling else): alla prima partita, quando la chiave non
-	// esiste ancora, lo stadio non veniva salvato per niente e "Select Stage"
-	// nel menu restava bloccato per sempre; e quando esisteva ma il nuovo
-	// valore non era maggiore, veniva sovrascritto lo stesso, facendo
-	// tornare indietro i progressi.
+	// BRACES REQUIRED. Without them the else bound to the INNER if instead
+	// of the outer one (dangling else): on a first playthrough, when the
+	// key does not exist yet, the stage was not saved at all and "Select
+	// Stage" in the menu stayed locked forever; and when it did exist but
+	// the new value was not greater, it was overwritten anyway, walking the
+	// progress backwards.
 	if (ds_map_exists(savemap, "currentStage")) {
 		if (nextStage > ds_map_find_value(savemap, "currentStage")) {
 			ds_map_set(savemap, "currentStage", nextStage);

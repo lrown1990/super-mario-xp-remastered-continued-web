@@ -33,24 +33,24 @@ global.language = "eng";
 
 set_soundtrack("remastered");
 
-//Dipswitches
+// Dipswitches
 global.continuousMusic = true;
 global.smoothTransitions = true;
 global.parallaxScrolling = true;
 
 global.oneHit = false;
 
-// Le preferenze tornano come le aveva lasciate la volta prima. Stanno nel file
-// del salvataggio ma in una SEZIONE tutta loro, "options": "New game" svuota
-// solo la chiave "content" della sezione "save-data", quindi cancellando la
-// partita le impostazioni restano dove sono.
-// I valori qui sopra fanno da riserva: alla prima partita il file non esiste
-// ancora e ini_read_* restituisce proprio quelli.
+// The preferences come back the way they were left last time. They live in
+// the save file but in a SECTION of their own, "options": "New game" only
+// empties the "content" key of the "save-data" section, so wiping the saved
+// game leaves the settings where they are.
+// The values above act as fallbacks: on a first run the file does not exist
+// yet and ini_read_* returns exactly those.
 ini_open("save_data.xp");
 global.character = ini_read_string("options", "character", global.character);
 global.parallaxScrolling = ini_read_real("options", "parallax", global.parallaxScrolling) > 0.5;
 global.smoothTransitions = ini_read_real("options", "transitions", global.smoothTransitions) > 0.5;
 ini_close();
 
-//window_set_fullscreen(true);
+// window_set_fullscreen(true);
 surface_resize(application_surface, 320, 240);

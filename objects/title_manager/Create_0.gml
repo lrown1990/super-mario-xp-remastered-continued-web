@@ -10,18 +10,19 @@ menu_cursor = spr_title_cursor;
 
 audio_stop_all();
 
-// C'e' una partita salvata? Si guarda il contenuto grezzo del salvataggio e
-// non lo stadio raggiunto: "c'e' qualcosa da perdere" e' esattamente "la
-// stringa non e' vuota". Questa lettura sta PRIMA di load_property apposta,
-// perche' quello, quando trova dei dati, esce senza chiudere il file.
+// Is there a saved game? It looks at the raw contents of the save and not
+// at the stage reached: "there is something to lose" is exactly "the string
+// is not empty". This read sits BEFORE load_property on purpose, because
+// that one, when it finds data, returns without closing the file.
 ini_open("save_data.xp");
 hasSave = (ini_read_string("save-data", "content", "") != "");
 ini_close();
 
 stageCount = load_property("currentStage");
 
-// Riquadro di conferma di "New game", disegnato nel Draw e comandato nello
-// Step. Il NO parte in evidenza: chi tira dritto non cancella niente.
+// Confirmation box for "New game", drawn in the Draw event and driven in
+// the Step. NO starts highlighted: anyone hammering through deletes
+// nothing.
 confirming = false;
 confirmYes = false;
 confirmMoved = true;

@@ -105,6 +105,15 @@ if(place_meeting(x + (entitySpeed * entityDirection), y, obj_ground_group)) {
 	entityDirection = -entityDirection;
 }
 
+// It turns around at the edges of the screen too, not just at walls. In the
+// room before the boss (3-6) the right hand side is open, because that is
+// where Mario goes through into the arena: the mushroom slipped in there,
+// walked past the end of the floor and dropped out of sight.
+if(x < 4 && entityDirection == -1)
+	entityDirection = 1;
+else if(x > room_width - 4 && entityDirection == 1)
+	entityDirection = -1;
+
 if(y > room_height + 32) {
 	instance_destroy();
 }

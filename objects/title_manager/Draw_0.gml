@@ -29,10 +29,10 @@ if(currentOption == 3) {
 	draw_sprite_ext(spr_options, 0, (room_width / 2), 198, 1, 1, 0, c_white, 1);
 }
 
-// La firma "Web port done by Carlo Sinatra" stava qui in fondo, a y=228, ed e'
-// stata tolta: il credito e' passato nella schermata d'apertura, dove non e'
-// piu' descritto come un semplice port. Il menu resta alle quote di adesso
-// (158/178/198), alzate di 12px a suo tempo per fare posto alla firma.
+// The line "Web port done by Carlo Sinatra" used to be down here, at y=228,
+// and has been removed: the credit moved to the opening screen, where it is
+// no longer described as just a port. The menu stays at its current heights
+// (158/178/198), raised by 12px back then to make room for that line.
 draw_set_font(small_font);
 
 switch(currentOption) {
@@ -51,12 +51,12 @@ switch(currentOption) {
 		break;
 	}
 }
-// ---- riquadro di conferma di "New game" --------------------------------
-// Va disegnato per ultimo: copre il menu, che intanto e' fermo (vedi lo Step).
-// Nel gioco non c'e' nessun altro riquadro da cui copiare lo stile, quindi e'
-// quello dei giochi dell'epoca: fondo nero, cornice bianca, e la voce in
-// evidenza in giallo come nella schermata delle opzioni. Il testo resta in
-// inglese come tutto il resto delle scritte, anche nei blocchi "ptbr".
+// ---- confirmation box for "New game" -----------------------------------
+// It has to be drawn last: it covers the menu, which is frozen meanwhile
+// (see the Step). There is no other box in the game to copy the style from,
+// so it is the style of the games of the day: black fill, white frame, and
+// the highlighted entry in yellow as on the options screen. The text stays
+// in English like all the other lettering, in the "ptbr" blocks too.
 if(confirming) {
 	var riga1 = "WARNING!";
 	var riga2 = "All saved data will be lost.";

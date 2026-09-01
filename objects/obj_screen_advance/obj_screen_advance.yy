@@ -37,5 +37,5 @@
     "path":"sprites/spr_screen_advance/spr_screen_advance.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

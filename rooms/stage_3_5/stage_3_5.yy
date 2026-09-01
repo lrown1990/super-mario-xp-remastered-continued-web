@@ -90,6 +90,10 @@
     {"name":"inst_39B854CB","path":"rooms/stage_3_5/stage_3_5.yy",},
     {"name":"inst_1C39BC79","path":"rooms/stage_3_5/stage_3_5.yy",},
     {"name":"inst_F30C4A1","path":"rooms/stage_3_5/stage_3_5.yy",},
+    {"name":"inst_scheletro_3_5_1","path":"rooms/stage_3_5/stage_3_5.yy",},
+    {"name":"inst_scheletro_3_5_2","path":"rooms/stage_3_5/stage_3_5.yy",},
+    {"name":"inst_scheletro_3_5_3","path":"rooms/stage_3_5/stage_3_5.yy",},
+    {"name":"inst_scheletro_3_5_4","path":"rooms/stage_3_5/stage_3_5.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -248,6 +252,10 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_paratroopa_path","path":"objects/obj_paratroopa_path/obj_paratroopa_path.yy",},"propertyId":{"name":"type","path":"objects/obj_paratroopa_path/obj_paratroopa_path.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"red",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1712.0,"y":208.0,},
         {"$GMRInstance":"v4","%Name":"inst_F30C4A1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_F30C4A1","objectId":{"name":"obj_paratroopa_path","path":"objects/obj_paratroopa_path/obj_paratroopa_path.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2096.0,"y":160.0,},
+        {"$GMRInstance":"v4","%Name":"inst_scheletro_3_5_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_scheletro_3_5_1","objectId":{"name":"obj_dry_bones","path":"objects/obj_dry_bones/obj_dry_bones.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1640.0,"y":112.0,},
+        {"$GMRInstance":"v4","%Name":"inst_scheletro_3_5_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_scheletro_3_5_2","objectId":{"name":"obj_dry_bones","path":"objects/obj_dry_bones/obj_dry_bones.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2584.0,"y":160.0,},
+        {"$GMRInstance":"v4","%Name":"inst_scheletro_3_5_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_scheletro_3_5_3","objectId":{"name":"obj_dry_bones","path":"objects/obj_dry_bones/obj_dry_bones.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1288.0,"y":176.0,},
+        {"$GMRInstance":"v4","%Name":"inst_scheletro_3_5_4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_scheletro_3_5_4","objectId":{"name":"obj_dry_bones","path":"objects/obj_dry_bones/obj_dry_bones.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":400.0,"y":208.0,},
       ],"layers":[],"name":"Objects","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_4","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_4","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":30,"SerialiseWidth":400,"TileCompressedData":[
           -5316,-2147483648,4,132,133,134,135,-396,-2147483648,4,164,165,166,167,-396,-2147483648,4,196,197,198,

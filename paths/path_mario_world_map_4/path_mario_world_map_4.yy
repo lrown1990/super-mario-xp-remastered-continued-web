@@ -1,0 +1,23 @@
+{
+  "$GMPath":"",
+  "%Name":"path_mario_world_map_4",
+  "closed":false,
+  "kind":0,
+  "name":"path_mario_world_map_4",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":200.0,"y":170.0,},
+    {"speed":100.0,"x":199.0,"y":183.0,},
+    {"speed":100.0,"x":249.0,"y":169.0,},
+    {"speed":100.0,"x":249.0,"y":151.0,},
+    {"speed":100.0,"x":221.0,"y":151.0,},
+    {"speed":100.0,"x":221.0,"y":142.0,},
+    {"speed":100.0,"x":232.0,"y":142.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

@@ -1,4 +1,4 @@
-// fuori dal campo di gioco sparisce (ev. 384)
+// outside the play area it disappears (ev. 384)
 if(y > room_height + 16 || x < -16 || x > room_width + 16)
 	instance_destroy();
 

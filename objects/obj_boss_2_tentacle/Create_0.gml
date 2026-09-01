@@ -1,39 +1,37 @@
-// Il tentacolo che spunta da terra (Boss_02 nell'originale).
-// Non si muove a caso: segue il percorso registrato nell'editor del 2001,
-// quattro tratti, letti dal file. Le durate vengono da "pixel al secondo".
+// The tentacle that comes up out of the ground (Boss_02 in the original).
+// It does not move at random: it follows the movement recorded in the 2001
+// editor, four legs, read out of the file. The durations come from the
+// "pixels per second" figures stored with each leg.
 
 depth = 29;
 
-// Quanto sale la stoccata. Sul video dell'originale la cima si ferma a
-// y=138 con il camminamento a y=159, cioe' 21 pixel sopra; con 75 qui si
-// ottiene proprio quello. Ma nella nostra arena il piano di calpestio non
-// sta alla stessa quota del video, e dal vivo il tentacolo risultava appena
-// sopra il ponte: portato a 95, cioe' una ventina di pixel piu' su.
+// How far the lunge travels. In the original footage the tip stops at y=138
+// with the walkway at y=159, that is 21 pixels above it, and 75 here gives
+// exactly that. But in our arena the floor is not at the same height as in
+// the video, and in play the tentacle ended up barely above the bridge, so
+// it was raised to 95, about twenty pixels higher.
 salita = 95;
 
-// MISURATO SUL VIDEO. La formula della documentazione da' 375 pixel al
-// secondo; l'originale ne fa 216, misurati sulla stoccata intera (90 pixel
-// dalla quota 228 alla 138, in 10 fotogrammi a 23,976 al secondo). Il
-// rapporto e' 1,74, non 2: la prima misura che avevo fatto copriva solo un
-// pezzo della salita e dava "esattamente meta'", ma era incompleta.
+// MEASURED FROM THE VIDEO. The documented formula gives 375 pixels per
+// second; the original does 216, measured across the whole lunge (90 pixels
+// from y=228 to y=138, in 10 frames at 23.976 fps). The ratio is 1.74, not
+// 2: the first measurement covered only part of the rise and suggested
+// "exactly half", but it was incomplete.
 rallenta = 1.74;
 
-// tratto: [attesa PRIMA, pixel in Y, secondi di percorrenza]
-// L'originale ha un solo tratto di salita (75 px) con una pausa di 2 secondi.
-// Dov'e' quella pausa, prima o dopo, il file non lo dice. La memoria di chi ci
-// ha giocato dice che il tentacolo si vede spuntare dal basso per uno o due
-// secondi e POI scatta verso l'alto, quindi la pausa e' prima della stoccata:
-// una prima uscita breve, l'attesa, poi il resto della salita.
-// Misurato sul video: il tentacolo NON esce gradualmente. Compare gia' alla
-// sua quota d'attesa, con la cima a y=230 (dieci pixel sopra il fondo della
-// stanza), ci resta mezzo secondo mordendo, e POI fa un'unica stoccata di
-// una novantina di pixel fino a portare la cima a y=138. La pianta lo crea
-// gia' in quella posizione, non piu' in basso.
-// L'attesa in cima era 2,0 secondi, il valore del percorso originale.
-// Portata a 1,5 su richiesta dell'utente: mezzo secondo in meno fermo a
-// mordere prima di riscendere. La vita di un tentacolo passa da 4,9 a 4,4
-// secondi, e il tempo in cui la testa sta sopra il piano del ponte (y=160)
-// da 2,9 a 2,4 secondi.
+// leg: [wait BEFORE it, pixels in Y, seconds to travel]
+// The original has a single rising leg (75 px) with a 2 second pause. The
+// file does not say whether that pause comes before or after. Watching the
+// video settles it: the tentacle does NOT rise gradually. It appears already
+// at its waiting height, tip at y=230 (ten pixels above the bottom of the
+// room), stays there biting for half a second, and THEN makes one single
+// lunge of about ninety pixels that brings the tip to y=138. The flower
+// creates it already in that position, not lower down.
+// The wait at the top was 2.0 seconds, the value from the original movement.
+// Lowered to 1.5 at the user's request: half a second less spent biting up
+// there before it goes back down. A tentacle's life goes from 4.9 to 4.4
+// seconds, and the time its head spends above the bridge floor (y=160) from
+// 2.9 to 2.4 seconds.
 legs = [
 	[0.5, -salita, rallenta * salita / 375],
 	[0.0,      -8, rallenta *   8 / 125],

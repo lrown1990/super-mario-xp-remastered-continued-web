@@ -17,12 +17,27 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
   and it drops four spores every 3 seconds. Sprites and sounds taken from the original game.
   New objects: `obj_boss_2`, `obj_boss_2_tentacle`, `obj_boss_2_spore`, plus 7 sprites and
   7 sounds. The stage exit stays closed until the boss is down.
-- **Stage 3-1 bullet bill restored.** In the original, while the player is between x 1200 and
-  3000, a bullet bill is fired from off screen every 3 seconds at a tile aligned random height.
-  Back in, with a new object `obj_thrower_offscreen`. Heights are limited to the upper rows,
-  where the shot is actually visible.
-- **Character marker on the stage select map** for stages 1 to 3, drawn at the end point of the
-  existing world map paths.
+- **Stage 3 boss (Nightmare) and its arena.** Walking into 3-7 used to drop the player on the
+  game over screen. The room is now there, rebuilt pixel for pixel from the original's level
+  map, and so is the fight: 30 hit points, stomp 5, fireball 1, hammer 1, cross 2, and the two
+  attacks are the original's two timers. Every 8 seconds it dives to the floor, stays down
+  4.10 seconds and flings the Boos around it straight out of the room; every 12.2 seconds it
+  stays high and sends them off spinning instead. It opens with eighteen red Boos pulsing in
+  and out along their own rays, and after 20 seconds it summons two Dry Bones through the side
+  doors. New objects: `obj_boss_3`, `obj_boss_3_boo`, room `stage_3_7`, plus 5 sprites and
+  4 sounds.
+- **Dry Bones.** The sprites were already in the project but no object ever used them: it was
+  the only stage 3 enemy that had never been ported. Now in 3-3, 3-5 and the boss arena, with
+  the rules from the original's events: the fireball does nothing to it, stomp and hammer knock
+  it apart and it puts itself back together after five seconds, and only the cross kills it. It
+  turns around at walls only, and walks straight off ledges. New object `obj_dry_bones`.
+- **World map walk for stages 4 to 7.** `obj_mario_world_map` only had paths for the first
+  three stages, so from stage 4 on the character never moved. The four missing routes are
+  recovered from the original: the starting point of each is the character's position on that
+  stage's own Stage Map screen, and the route is traced frame by frame from recorded footage.
+  New paths `path_mario_world_map_4` to `_7`.
+- **Character marker on the stage select map**, for all seven stages. It is read from the last
+  point of the matching world map path, so the marker cannot drift away from the walk.
 - **Confirmation before "New game"** when a save exists: *WARNING! All saved data will be lost.
   Proceed?*, with NO highlighted by default.
 - **Options are remembered between sessions** (character, parallax, smooth transitions). They
@@ -32,6 +47,10 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
   WEAKER for Luigi.
 - **Credits screen redone**: text only, one colour per name, and it can be skipped with Enter
   or Z.
+- **Stage 3-1 bullet bill restored.** In the original, while the player is between x 1200 and
+  3000, a bullet bill is fired from off screen every 3 seconds at a tile aligned random height.
+  Back in, with a new object `obj_thrower_offscreen`. Heights are limited to the upper rows,
+  where the shot is actually visible.
 
 ### Fixes
 
@@ -47,6 +66,12 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
 - **Luigi's fireball had no gravity**: the gravity line sat inside a switch with a "mario" case
   only, so his fireballs flew straight and never bounced.
 - **Luigi threw two crosses instead of one.** Weapons now behave the same for both characters.
+- **Mushrooms walked out of the room in 3-6.** The right hand side of that room is open, because
+  that is the way into the boss arena: a mushroom released there walked past the end of the
+  floor and dropped out of the world. Items now turn around at the edges of the room too.
+- **The stage 3 boss could push the player through the ceiling.** Stomping it repeatedly while
+  it rose moved the player up a few pixels at a time until he ended up above the room. He is now
+  placed on top of the boss only where there is room for him.
 - **Debug leftovers removed**: `show_debug_message` calls in `obj_player` and `obj_item_block`,
   `global.debug` turned off, F2 restart moved behind the debug flag.
 
@@ -60,13 +85,16 @@ Worth knowing before merging anything back:
 - `obj_game_manager` has an **Async - System** event that listens to messages from the hosting
   page, used by the "exit to menu" entry of the web pause screen.
 - The title screen no longer draws `spr_copyright` (a fake "©NINTENDO. KONAMI." notice) and the
-  menu sits 12 pixels higher.
+  menu sits 12 pixels higher. The "Web port done by" line that used to sit under it is gone as
+  well: the credit lives on the opening screen now.
+- The stage select screen no longer prints "SMXP:R - SAGE 2022 DEMO", the label of a demo build
+  made for an event this fork has nothing to do with.
 - The project was converted to GameMaker LTS 2026, which rewrites every `.yy` file. The real
-  changes are 17 `.gml` files, three rooms (`demo`, `stage_2_7`, `stage_3_1`) and the resources
-  listed above.
+  changes are 34 `.gml` files, the rooms `demo`, `stage_2_7`, `stage_3_1`, `stage_3_3`,
+  `stage_3_5`, `stage_3_6` and the new `stage_3_7`, and the resources listed above.
 
 ## Credits
 
 - Original game, 2001: **CnC Darkside**
-- GameMaker remake: **Matth33w**
+- GameMaker remaster: **Matth33w**
 - This fork: **Carlo Sinatra**
