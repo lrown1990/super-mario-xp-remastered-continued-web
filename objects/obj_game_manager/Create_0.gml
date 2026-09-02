@@ -27,6 +27,11 @@ global.screenToWarp = noone;
 
 global.warpsEntered = [];
 
+// The hidden 1UP blocks already opened in this run. A 1UP is worth having
+// once: after that the same block gives a big heart instead. Same idea as
+// warpsEntered above, and it is emptied in the same two places.
+global.unUpPresi = [];
+
 global.character = "mario";
 
 global.language = "eng";

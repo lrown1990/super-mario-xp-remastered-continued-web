@@ -26,6 +26,21 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 		sprite_index = spr_item_block_destroyed;
 	}
 	
+	// A green mushroom is worth having ONCE per run. Take it, die, come back:
+	// the same block now gives a big heart instead, because the extra life is
+	// the prize for getting there and not a tap that can be left open. The key
+	// is the block's own place, so every block is counted on its own, and the
+	// slate is wiped when a stage is started and on a new game, exactly like
+	// the pipes in global.warpsEntered. Note it is the pickup that marks it,
+	// not the hit: dying with the mushroom still bouncing around loses nothing.
+	var chiave = string(room) + ":" + string(x) + ":" + string(y);
+	if(item_inside == "life_mushroom") {
+		for(var i = 0; i < array_length(global.unUpPresi); i++) {
+			if(global.unUpPresi[i] == chiave)
+				item_inside = "big_heart";
+		}
+	}
+
 	switch(item_inside) {
 		case "small_heart": {
 			var heart = instance_create_layer(x, y, "Objects", obj_heart);
@@ -80,6 +95,7 @@ if(!hit && place_meeting(x, y + 1, obj_player)) {
 		case "life_mushroom": {
 			var mushroom = instance_create_layer(x, y + (sprite_height / 2), "Objects", obj_mushroom);
 			mushroom.mushroomType = "life";
+			mushroom.chiaveUnUp = chiave;
 			audio_play_sound(snd_item_appear, 1, false);
 			break;
 		}

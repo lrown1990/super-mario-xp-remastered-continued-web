@@ -5,3 +5,4 @@ introTimeout = 0;
 fadeOutPos = 0;
 
 array_delete(global.warpsEntered, 0, array_length(global.warpsEntered));
+array_delete(global.unUpPresi, 0, array_length(global.unUpPresi));

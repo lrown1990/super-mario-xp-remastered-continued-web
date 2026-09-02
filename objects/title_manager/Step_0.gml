@@ -116,6 +116,7 @@ if(timeout > 2) {
 			global.initialWarpDirection = "none";
 			global.screenToWarp = noone;
 			global.warpsEntered = [];
+			global.unUpPresi = [];
 			global.lastRoom = stage_1_1;
 
 			ini_open("save_data.xp");

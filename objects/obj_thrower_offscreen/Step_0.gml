@@ -3,8 +3,10 @@ if(!instance_exists(obj_player))
 
 // Outside the stretch the count stands still, as in obj_thrower when the
 // cannon is off camera: it does not restart from scratch, it picks up where
-// it was.
-if(obj_player.x >= fromX && obj_player.x <= toX)
+// it was. A level gates on one axis and leaves the other wide open: 3-1 walks
+// along X, 4-4 climbs along Y.
+if(obj_player.x >= fromX && obj_player.x <= toX &&
+   obj_player.y >= fromY && obj_player.y <= toY)
 	counter += delta_time / 1000000;
 
 if(counter >= period) {

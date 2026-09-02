@@ -12,6 +12,16 @@ if(!global.playerDead) {
 	if(dead)
 		image_yscale = -1;
 
+	// The plume, going out and coming back, the same one the serpent throws
+	// up. Only where there is water: on the bridge in 2-3 there is none, and
+	// the fish must break nothing there.
+	if(quotaAcqua >= 0) {
+		var sottAcqua = (y > quotaAcqua);
+		if(sottAcqua != eraSottAcqua)
+			instance_create_layer(x, quotaAcqua + 8, "Objects", obj_splash);
+		eraSottAcqua = sottAcqua;
+	}
+
 	if(instance_exists(obj_player)) {
 		if(!dead && obj_player.currentY > 0 && place_meeting(x, y - (abs(ySpeed) + abs(obj_player.currentY)), obj_player) && !place_meeting(x, y, obj_player)) {
 			if(global.jumpHold && !obj_player.onGround)

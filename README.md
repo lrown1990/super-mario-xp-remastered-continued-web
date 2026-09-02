@@ -10,6 +10,40 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
 
 ### New content
 
+- **Stage 4 boss (the sea serpent) and the two rooms that were missing.** Stage 4 stopped at 4-5:
+  the pipe at the end of it led nowhere, and rooms 4-6 and 4-7 did not exist in the project at
+  all. Both are rebuilt from the original's own level maps. The corridor 4-6 comes out at 1056
+  differing pixels out of 153,600, all of them inside the pipe cells and the frames of the block
+  animation; the arena background of 4-7 matches the map exactly. The fight follows the original:
+  25 hit points, and a cycle of roughly three seconds. The serpent swims below the surface along
+  a curve, leaps out where the player is, and then either bites, or hangs in the air with its
+  mouth open for 1.2 seconds and spits three fireballs, or bounces off the bridge once or twice
+  before dropping back in. Under 10 hit points the body falls away, and the head alone stays up
+  on the bridge and keeps bouncing. Its mask is precise and contact damage is tested one step
+  below the head, so a clean stomp costs the player nothing. New objects `obj_boss_4`,
+  `obj_boss_4_segment`, `obj_boss_4_fireball`, `obj_splash`, rooms `stage_4_6` and `stage_4_7`,
+  14 sprites and 3 sounds, the splash, the turn at the top of the leap and the roar, all from
+  the original's own bank.
+- **Stage 4 put back the way the original has it.** No block in stage 4 had its contents set, so
+  every one of them fell back to the default. The placement data of the 2001 game was read back
+  out of its level files and used to restore them, block by block. 4-2 now opens with a poison
+  mushroom and a fire flower, has a hammer throwing turtle on the bridge and a cross near the
+  end; the first "?" block of 4-3 gives a mushroom; 4-4 has its bullet bill, fired from the
+  right at any height across the whole screen, along with the fire rods and the enemies that
+  were missing from the end of it; 4-5 got its enemies back and the warp pipe that leads on to
+  4-6. To let one object cover both cases, `obj_thrower_offscreen` now takes its range, its
+  period and the band of rows it can fire at as instance variables, keeping the 3-1 numbers as
+  its defaults.
+- **Cheep cheeps break the surface.** Where there is water, a plume comes up wherever a fish
+  crosses the water line, on the way out and on the way back in, using the same ten frame
+  animation as the boss. Each fish reads the water line from the room it is in, so 2-3, where
+  the fish jump over a bridge with nothing underneath, correctly stays dry, exactly as it is
+  silent there in the original. Their mask is precise now as well.
+- **A green mushroom is worth one extra life per run.** Take it, die, come back and hit the same
+  block, and it gives a big heart instead. That covers all twenty of them, 11 in "?" blocks and
+  9 in hidden blocks, whose default content is the green mushroom. It is the pickup that counts
+  and not the hit, so dying while the mushroom is still bouncing around loses nothing, and the
+  slate is wiped when a stage is started and on a new game.
 - **Stage 2 boss (Mammoth Flower).** The boss room was empty. The fight is rebuilt from the
   event data of the 2001 original, not guessed from videos: 18 hit points, stomp 2, fireball 1,
   hammer 1, cross 2; it chases the player 1 pixel every 100 ms between x 60 and 900, sinks and
@@ -90,8 +124,9 @@ Worth knowing before merging anything back:
 - The stage select screen no longer prints "SMXP:R - SAGE 2022 DEMO", the label of a demo build
   made for an event this fork has nothing to do with.
 - The project was converted to GameMaker LTS 2026, which rewrites every `.yy` file. The real
-  changes are 34 `.gml` files, the rooms `demo`, `stage_2_7`, `stage_3_1`, `stage_3_3`,
-  `stage_3_5`, `stage_3_6` and the new `stage_3_7`, and the resources listed above.
+  changes are 47 `.gml` files, the rooms `demo`, `stage_2_7`, `stage_3_1`, `stage_3_3`,
+  `stage_3_5`, `stage_3_6`, `stage_4_2`, `stage_4_3`, `stage_4_4`, `stage_4_5` and the new
+  `stage_3_7`, `stage_4_6`, `stage_4_7`, and the resources listed above.
 
 ## Credits
 

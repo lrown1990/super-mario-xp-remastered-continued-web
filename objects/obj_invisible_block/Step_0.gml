@@ -6,7 +6,9 @@ if(instance_exists(obj_player)) {
 	{
 		obj_player.y = y + obj_player.sprite_height + 8;
 		obj_player.currentX = 0;
-			
+
+		// The green mushroom's once-per-run rule lives in obj_item_block: this
+		// block only hands its contents over.
 		var block = instance_create_layer(x, y, "Objects", obj_item_block);
 		block.item_inside = item_inside;
 		instance_destroy();

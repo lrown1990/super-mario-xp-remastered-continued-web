@@ -36,6 +36,8 @@ if(place_meeting(x, y, obj_player) && !appearing) {
 		case "life": {
 			audio_play_sound(snd_life_up, 1, false);
 			global.playerLives++;
+			if(chiaveUnUp != "")
+				array_push(global.unUpPresi, chiaveUnUp);
 			instance_create_layer(x, y, "Objects", obj_1up_indicator);
 			instance_destroy();
 			break;
