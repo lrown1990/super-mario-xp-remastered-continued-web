@@ -80,6 +80,11 @@
     {"name":"inst_1C0B932A","path":"rooms/stage_6_1/stage_6_1.yy",},
     {"name":"inst_7ED64AA9","path":"rooms/stage_6_1/stage_6_1.yy",},
     {"name":"inst_7B3DFA15","path":"rooms/stage_6_1/stage_6_1.yy",},
+    {"name":"inst_martellatore_6_1_1","path":"rooms/stage_6_1/stage_6_1.yy",},
+    {"name":"inst_martellatore_6_1_2","path":"rooms/stage_6_1/stage_6_1.yy",},
+    {"name":"inst_martellatore_6_1_3","path":"rooms/stage_6_1/stage_6_1.yy",},
+    {"name":"inst_martellatore_6_1_4","path":"rooms/stage_6_1/stage_6_1.yy",},
+    {"name":"inst_martellatore_6_1_5","path":"rooms/stage_6_1/stage_6_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -194,6 +199,11 @@
         {"$GMRInstance":"v4","%Name":"inst_7B3DFA15","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7B3DFA15","objectId":{"name":"obj_fire_rod","path":"objects/obj_fire_rod/obj_fire_rod.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_fire_rod","path":"objects/obj_fire_rod/obj_fire_rod.yy",},"propertyId":{"name":"rotate_direction","path":"objects/obj_fire_rod/obj_fire_rod.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-1",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1728.0,"y":144.0,},
+        {"$GMRInstance":"v4","%Name":"inst_martellatore_6_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_martellatore_6_1_1","objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1312.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_martellatore_6_1_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_martellatore_6_1_2","objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1360.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_martellatore_6_1_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_martellatore_6_1_3","objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2448.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_martellatore_6_1_4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_martellatore_6_1_4","objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2856.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_martellatore_6_1_5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_martellatore_6_1_5","objectId":{"name":"obj_hammer_bro","path":"objects/obj_hammer_bro/obj_hammer_bro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3152.0,"y":128.0,},
       ],"layers":[],"name":"Objects","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":15,"SerialiseWidth":200,"TileCompressedData":[
           -2,32,-18,0,-178,-2147483648,-4,32,-18,0,-178,-2147483648,-4,32,-18,0,-178,-2147483648,-4,32,-18,0,-178,

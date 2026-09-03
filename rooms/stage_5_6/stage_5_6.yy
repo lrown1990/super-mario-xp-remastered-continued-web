@@ -103,6 +103,8 @@
     {"name":"inst_67BA3E3E","path":"rooms/stage_5_6/stage_5_6.yy",},
     {"name":"inst_4216882D","path":"rooms/stage_5_6/stage_5_6.yy",},
     {"name":"inst_2EE0F2FA","path":"rooms/stage_5_6/stage_5_6.yy",},
+    {"name":"inst_scheletro_5_6_1","path":"rooms/stage_5_6/stage_5_6.yy",},
+    {"name":"inst_pianta_5_6_1","path":"rooms/stage_5_6/stage_5_6.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -313,6 +315,10 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_block","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"propertyId":{"name":"item_inside","path":"objects/obj_invisible_block/obj_invisible_block.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"cross",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3160.0,"y":88.0,},
         {"$GMRInstance":"v4","%Name":"inst_2EE0F2FA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2EE0F2FA","objectId":{"name":"obj_piranha_plant","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1936.0,"y":176.0,},
+        {"$GMRInstance":"v4","%Name":"inst_scheletro_5_6_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_scheletro_5_6_1","objectId":{"name":"obj_dry_bones","path":"objects/obj_dry_bones/obj_dry_bones.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":160.0,},
+        {"$GMRInstance":"v4","%Name":"inst_pianta_5_6_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_pianta_5_6_1","objectId":{"name":"obj_piranha_plant","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_piranha_plant","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"propertyId":{"name":"piranha_type","path":"objects/obj_piranha_plant/obj_piranha_plant.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"red",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2800.0,"y":208.0,},
       ],"layers":[],"name":"Objects","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":15,"SerialiseWidth":200,"TileCompressedData":[
           -1247,0,-4,32,-75,0,2,24,25,-119,0,-4,32,-75,0,2,40,41,-25,0,2,8,9,-45,0,-2,32,-45,0,-4,32,-102,0,2,

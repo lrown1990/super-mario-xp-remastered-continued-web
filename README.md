@@ -34,6 +34,14 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
   4-6. To let one object cover both cases, `obj_thrower_offscreen` now takes its range, its
   period and the band of rows it can fire at as instance variables, keeping the 3-1 numbers as
   its defaults.
+- **Stages 5 and 6 put back the way the original has it.** The same treatment as stage 4, read
+  out of the 2001 game's own level files. 31 enemies were missing: 18 Dry Bones, 9 hammer
+  throwing turtles and 4 piranha plants. 5-3 alone had lost all seven of its Dry Bones and both
+  of its turtles, one of which stands on the row of "?" blocks; 6-1 was missing five turtles and
+  6-2 five Dry Bones. 16 "?" blocks in 5-3, 5-7 and 6-3 handed out the default item instead of
+  the one the original gives, among them two crosses, two fire flowers and a hammer. Where the
+  original stacks a green and a red piranha plant in the same pipe the port already places both,
+  so the four pipes that had only one were completed.
 - **Cheep cheeps break the surface.** Where there is water, a plume comes up wherever a fish
   crosses the water line, on the way out and on the way back in, using the same ten frame
   animation as the boss. Each fish reads the water line from the room it is in, so 2-3, where
@@ -106,6 +114,16 @@ The project opens in **GameMaker LTS 2026** and is exported as HTML5.
 - **The stage 3 boss could push the player through the ceiling.** Stomping it repeatedly while
   it rose moved the player up a few pixels at a time until he ended up above the room. He is now
   placed on top of the boss only where there is room for him.
+- **The hammer throwing turtle walked through walls.** Two of its rules cancelled each other
+  out: the patrol bound turns it round when it leaves its 64 pixel band, and the wall check then
+  inverted that turn and pointed it straight back into the wall. With a wall sitting exactly on
+  the bound, as the pillar at x=304 in 5-3 does, it walked into it half a pixel per step and
+  ended up stuck in mid air on the far side. It now turns away from the wall instead of
+  inverting it. On the way up it also used to move through any solid, the only enemy in the game
+  that did; it is now stopped by everything except bricks, which stay passable so that the
+  vertical hop between brick rows in 3-1, 4-1 and 6-1 still works. Which way it faces is
+  unchanged: it always looks at the player and turns only when the player crosses to the other
+  side.
 - **Debug leftovers removed**: `show_debug_message` calls in `obj_player` and `obj_item_block`,
   `global.debug` turned off, F2 restart moved behind the debug flag.
 

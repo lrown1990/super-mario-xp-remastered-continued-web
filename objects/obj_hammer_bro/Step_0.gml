@@ -147,7 +147,14 @@ if(!defeated && !dead) {
 
 if(!defeated) {
 	if(place_meeting(x + currentX, y, obj_ground_group)) {
-		entityDirection = -entityDirection;
+		// Turn AWAY from the wall, do not invert. The patrol bound just above
+		// flips the direction on its own when x leaves the initialX-64..initialX
+		// band, and inverting on top of that flip pointed the hammer bro back
+		// into the wall: the two cancelled each other out every step and it
+		// walked straight through, half a pixel at a time. That is how the one
+		// in 5-3 ended up inside the pillar at x=304, which sits exactly on its
+		// left patrol bound.
+		entityDirection = currentX < 0 ? 1 : -1;
 	} else {
 		instance = instance_place(x + currentX, y, obj_enemy_group);
 		if(instance != noone && !instance.dead && !instance.defeated) {
@@ -171,7 +178,23 @@ if((onCamera || !inactive_offscreen) && !global.playerDead && !defeated) {
 		y += currentY;
 	} else {
 		if(currentY < 0) {
-			y += currentY;
+			// Going up. This used to move through ANY solid, so the hammer bro
+			// climbed into walls: once its mask overlapped one it also counted
+			// as standing on it, could jump again from mid air, and ended up
+			// floating on the far side (the pillar at x=304 in 5-3).
+			// Bricks stay passable on the way up on purpose: the falling
+			// branch below already drops through them on the short hop, which
+			// is the Hammer Bro's own move and is what 3-1, 4-1 and 6-1 are
+			// built around.
+			if(place_meeting(x, y + currentY, obj_brick)) {
+				y += currentY;
+			} else {
+				while(!place_meeting(x, y - 1, obj_ground_group)) {
+					y -= 1;
+				}
+
+				currentY = 0;
+			}
 		} else {
 			if(jumpStrength != 1 ) {
 				while(!place_meeting(x, y + sign(currentY), obj_ground_group)) {
