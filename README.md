@@ -14,12 +14,14 @@ come from the game itself rather than from memory or from videos.
 
 ### The bosses that were missing
 
-Four of the seven stages had no boss at all. Stage 2 ended in an empty room,
+Five of the seven stages had no boss at all. Stage 2 ended in an empty room,
 walking into the stage 3 arena dropped you straight on the game over screen, and
-stages 4 and 5 simply stopped: the pipe at the end led nowhere and the last rooms
-did not exist in the project.
+stages 4, 5 and 6 simply stopped: the pipe at the end led nowhere and the last
+rooms did not exist in the project. Stage 6 was missing two of them, the store
+room where you stock up on hammers and hearts before the fight as well as the
+arena itself.
 
-All four fights are now in, along with the rooms they happen in, rebuilt from the
+All five fights are now in, along with the rooms they happen in, rebuilt from the
 original's own maps:
 
 - **Stage 2, the Mammoth Flower.** It chases you along the floor, sinks and comes
@@ -37,6 +39,13 @@ original's own maps:
   platforms over a lava pit. Stomping does nothing: the only way to hurt them is
   a headbutt from below. They spit fire more often when you get close, and they
   come at you harder once wounded.
+- **Stage 6, Kamek.** Bowser's right hand, and the one who carried the princess
+  off. He keeps to the floor and crosses the room in a dash, trailing ghosts of
+  himself, then stops somewhere else to cast: a bolt of magic, a rain of stone
+  blocks that burst when they land, or a Thwomp dropped straight down on your
+  head. He can only be hurt while he is standing still, and the more he takes the
+  harder he works: two bolts instead of one, and the blocks come thicker. Beaten,
+  he is squashed flat, lies there a moment and crumbles away.
 
 ### The stages as the 2001 game had them
 
@@ -64,6 +73,11 @@ finishes them for good.
 
 ### Menus and saving
 
+- **The game saves as you go.** It used to write only when a boss went down, so
+  the save stood still at your last victory: reach a boss in good shape and you
+  could replay the rest of the stage on that same state, reloading from the menu
+  every time it went badly. It now records where you stand each time a level
+  starts, and your lives are part of what it keeps, which they never were.
 - **New game asks first** when a save already exists, instead of quietly wiping it.
 - **Options are remembered between sessions**, and starting a new game no longer
   clears them.
@@ -78,6 +92,10 @@ finishes them for good.
   higher stage with a lower one.
 - **New game did not start a new game.** It resumed from wherever you had got to,
   with the hearts and the weapon of the previous run.
+- **Leaving for the menu while you were dying left the game believing you still
+  were.** Whatever stage you started next played for a few seconds, then took a
+  life off you and restarted itself, and the lives of the run you had walked out
+  of came back with it.
 - **Opening the options screen forced the character back to Mario.**
 - **Luigi was broken in two ways**: his fireballs flew straight instead of
   bouncing, and he threw two crosses where Mario throws one.
@@ -89,6 +107,9 @@ finishes them for good.
   each other out, so where a wall stood at the edge of its patrol it drifted into
   the stone and ended up stuck in mid air on the far side. It also used to pass
   through anything on its way up, the only enemy in the game that did.
+- **The hammer throwing turtle also froze at the end of a level.** Where its patrol
+  reached the edge of the map it walked into the way out, stood still and stopped
+  throwing anything. The edge of the map is a wall to it now.
 - **The cloud that drops spiny shells flew through walls too**, and the shells it
   dropped inside them stayed stuck there for good.
 - **The stage select screen could crash the game to a black screen** if it was

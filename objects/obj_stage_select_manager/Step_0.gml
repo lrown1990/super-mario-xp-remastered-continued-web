@@ -2,6 +2,13 @@ if(global.start || global.jump) {
 	global.hearts = load_property("hearts");
 	global.playerWeapon = load_property("weapon");
 	global.pHealth = real(string_digits(load_property("health")));
+	// Lives are in the save now, written at the start of every level. When they
+	// are not there (empty save, or a run that ended with none left) the count
+	// falls back to the five a new game starts with.
+	var vite = load_property("lives");
+	if(!is_real(vite) || vite <= 0) vite = 5;
+	global.playerLives = vite;
+	global.playerDead = false;
 	room_goto(stage_intro);
 }
 

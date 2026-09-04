@@ -68,6 +68,17 @@ if(x < initialX - 64 && entityDirection == -1) {
 	entityDirection = -1;
 }
 
+// And if something shoves it out of the band anyway (a goomba underfoot moves
+// it 8 pixels sideways), it gets put back inside rather than left frozen in the
+// corner. See the note in the Create for why the margin is what it is.
+if(x < MARGINE_BORDO) {
+	x = MARGINE_BORDO;
+	entityDirection = 1;
+} else if(x > room_width - MARGINE_BORDO) {
+	x = room_width - MARGINE_BORDO;
+	entityDirection = -1;
+}
+
 if(defeated && !global.playerDead) {
 	y += defeatedYSpeed;
 	defeatedYSpeed += 0.22;

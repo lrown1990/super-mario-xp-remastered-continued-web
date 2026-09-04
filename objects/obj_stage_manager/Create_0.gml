@@ -19,3 +19,7 @@ stage_fadeout_offset = -1;
 stage_fadeout_timer = 0;
 
 cheep_cheep_timer = 0;
+
+// The run is written to the save at the start of every level, not only at the
+// end of a stage: see the note inside save_run_state.
+save_run_state();

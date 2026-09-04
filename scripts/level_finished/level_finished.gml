@@ -24,6 +24,9 @@ function level_finished(nextStage, weapon, hearts, playerHealth){
 	ds_map_set(savemap, "weapon", weapon);
 	ds_map_set(savemap, "hearts", hearts);
 	ds_map_set(savemap, "health", playerHealth);
+	// Lives as well: they used to be left out, so picking a stage from the menu
+	// started with whatever was still in memory from the run before.
+	ds_map_set(savemap, "lives", global.playerLives);
 	
 	encryptedData = ds_map_write(savemap);
 	ini_write_string("save-data", "content", encryptedData);
