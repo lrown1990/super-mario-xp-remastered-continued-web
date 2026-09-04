@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":0,
+  "channelFormat":1,
   "compression":0,
   "compressionQuality":0,
   "conversionMode":0,
-  "duration":7.183673,
+  "duration":7.1575,
   "exportDir":"",
   "name":"bgm_stage7",
   "parent":{

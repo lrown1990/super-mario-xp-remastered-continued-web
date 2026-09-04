@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":0,
+  "channelFormat":1,
   "compression":0,
   "compressionQuality":0,
   "conversionMode":0,
-  "duration":32.04,
+  "duration":31.9594,
   "exportDir":"",
   "name":"bgm_stage6_remaster",
   "parent":{

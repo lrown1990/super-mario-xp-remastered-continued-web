@@ -1,4 +1,5 @@
-if(!global.playerDead && active) {
+// global.bossFermo holds the whole room still while a boss defeat plays out
+if(!global.playerDead && active && !global.bossFermo) {
 	switch(orientation) {
 		case "horizontal": {
 			if(!place_meeting(x + platformSpeed * plat_direction, y, obj_moving_platform_switch)) {
@@ -28,7 +29,9 @@ if(!global.playerDead && active) {
 	}
 }
 
-if(instance_exists(obj_player)) {
+// ...and it must not switch itself back on under the player's feet while the
+// room is held: that is exactly where he is standing when the fight ends.
+if(instance_exists(obj_player) && !global.bossFermo) {
 	if(place_meeting(x, y - 1, obj_player) && !active) {
 		active = true;
 	}

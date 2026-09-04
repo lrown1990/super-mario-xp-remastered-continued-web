@@ -12,10 +12,10 @@ if(!global.playerDead && !defeated) {
 	}
 	
 	if(entityDirection == global.horizontal) {
-		x += entityDirection * 2;
+		moveHorizontal(entityDirection * 2);
 	} else if(entityDirection == -global.horizontal) {
-		x += entityDirection * 0.5;
+		moveHorizontal(entityDirection * 0.5);
 	} else {
-		x += entityDirection * 1;
+		moveHorizontal(entityDirection * 1);
 	}
 }

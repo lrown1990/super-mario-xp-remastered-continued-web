@@ -1,3 +1,10 @@
+// Frozen while a boss defeat plays out: no input, no gravity, nothing.
+if(global.bossFermo) {
+	currentX = 0;
+	currentY = 0;
+	exit;
+}
+
 //Horizontal Movement
 switch(global.character) {
 	case "mario": {

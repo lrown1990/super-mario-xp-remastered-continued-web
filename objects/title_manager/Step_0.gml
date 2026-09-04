@@ -110,6 +110,7 @@ if(timeout > 2) {
 			global.pHealth = 5;
 			global.playerWeapon = "none";
 			global.playerDead = false;
+			global.bossFermo = false;
 			global.startX = -1;
 			global.startY = -1;
 			global.initialWarping = false;

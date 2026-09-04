@@ -9,7 +9,7 @@ if(entityDirection == -1 &&
    !global.playerDead
 ){
 	currentX = -entitySpeed;
-	x += currentX;
+	moveHorizontal(currentX);
 } else if(
    entityDirection == 1 && 
    (onCamera || !inactive_offscreen) &&
@@ -18,7 +18,7 @@ if(entityDirection == -1 &&
    !global.playerDead
 ) {
 	currentX = entitySpeed;
-	x += currentX;
+	moveHorizontal(currentX);
 }
 
 if(defeated && y > room_height + sprite_height) {
@@ -121,7 +121,7 @@ if(!global.playerDead && !defeated) {
 	
 	jumpTimeout += delta_time / 1000000;
 	
-	if(!hammerThrown && image_index >= 10 && image_index <= 12 && y < 7800) {
+	if(!hammerThrown && image_index >= 10 && image_index <= 12 && y < 7800 && !place_meeting(x, y, obj_ground_group)) {
 		hammerThrown = true;
 		audio_play_sound(snd_throw, 1, false);
 		instance_create_layer(x, y, "Objects", obj_spiny_falling);

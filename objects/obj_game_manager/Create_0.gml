@@ -1,3 +1,9 @@
+// Everything in the room stands still while a boss defeat is playing out.
+// Only the stage 5 arena uses it so far: there the floor is made of lifts
+// that keep going down, so without this the player had to carry on climbing
+// through the victory music and could still die after winning.
+global.bossFermo = false;
+
 global.hearts = 10;
 global.pHealth = 5;
 
